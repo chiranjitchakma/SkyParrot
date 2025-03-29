@@ -404,6 +404,14 @@
             border-top: 1px solid #333;
         }
         
+        #aboutModal .contact a {
+            word-break: break-all;
+            font-size: 12px;
+            display: inline-block;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+        
         #aboutModal .copyright {
             margin-top: 30px;
             font-size: 10px;
@@ -463,6 +471,22 @@
             
             .pipe-gap {
                 height: 180px;
+            }
+            
+            #aboutModal .modal-content {
+                padding: 15px;
+            }
+            
+            #aboutModal h1 {
+                font-size: 18px;
+            }
+            
+            #aboutModal p {
+                font-size: 12px;
+            }
+            
+            #aboutModal .contact a {
+                font-size: 10px;
             }
         }
         
@@ -983,11 +1007,14 @@
             submitScoreBtn.addEventListener("click", submitScore);
             cancelSubmitBtn.addEventListener("click", hideAddToLeaderboardForm);
             
-            // Submit form on Enter key
-            playerNameInput.addEventListener("keypress", (e) => {
+            // Allow spaces in player name input
+            playerNameInput.addEventListener("keydown", function(e) {
+                // Only prevent default for Enter key to submit form
                 if (e.key === "Enter") {
+                    e.preventDefault();
                     submitScore();
                 }
+                // All other keys (including space) will work normally
             });
 
             // Menu events
