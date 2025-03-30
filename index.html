@@ -425,7 +425,8 @@
             max-width: 500px;
             background: rgba(0, 0, 0, 0.8);
             border: 2px solid #FF5252;
-            font-family: 'Press Start 2P', cursive;
+            /* CHANGED: Privacy Policy font to Arial */
+            font-family: Arial, sans-serif;
             text-align: center;
         }
 
@@ -512,8 +513,13 @@
                 font-size: 12px;
             }
             
+            /* CHANGED: Email overflow fix for mobile */
             #aboutModal .contact a {
                 font-size: 10px;
+                word-break: break-word;
+                overflow-wrap: break-word;
+                display: inline-block;
+                max-width: 100%;
             }
 
             .game-instructions {
